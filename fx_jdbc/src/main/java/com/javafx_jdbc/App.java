@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    private static Scene mainScene;
+
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -22,7 +24,7 @@ public class App extends Application {
             scrollPane.setFitToHeight(true);
             scrollPane.setFitToWidth(true);
 
-            Scene mainScene = new Scene(scrollPane);
+            mainScene = new Scene(scrollPane);
             primaryStage.setScene(mainScene);
             primaryStage.setTitle("Sample JavaFX application");
             primaryStage.show();
@@ -31,8 +33,13 @@ public class App extends Application {
         }
     }
 
+    public static Scene getMainScene() {
+        return mainScene;
+    }
+
     public static void main(String[] args) {
         launch();
     }
 
+   
 }
