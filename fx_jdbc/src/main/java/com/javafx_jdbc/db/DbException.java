@@ -1,6 +1,6 @@
 package com.javafx_jdbc.db;
 
-public class DbException extends RuntimeException{
+public class DbException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 

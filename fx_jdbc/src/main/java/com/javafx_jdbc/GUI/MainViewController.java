@@ -21,7 +21,6 @@ import javafx.scene.layout.VBox;
 
 public class MainViewController implements Initializable {
 
-
     @FXML
     private MenuItem menuItemSeller;
 
@@ -46,7 +45,8 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemAboutAction() {
-        loadView("/GUI/About.fxml", x ->{});
+        loadView("/GUI/About.fxml", x -> {
+        });
     }
 
     @Override
@@ -54,15 +54,13 @@ public class MainViewController implements Initializable {
 
     }
 
-
-
     private synchronized <T> void loadView(String absoluteName, Consumer<T> initialazingAction) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
             VBox newVBox = loader.load();
 
             Scene mainScene = App.getMainScene();
-            VBox mainVBox = (VBox)((ScrollPane)mainScene.getRoot()).getContent();
+            VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 
             Node mainMenu = mainVBox.getChildren().get(0);
             mainVBox.getChildren().clear();
@@ -76,6 +74,5 @@ public class MainViewController implements Initializable {
             Alerts.showAlert("IO Excepetion", "Error loading view", e.getMessage(), AlertType.ERROR);
         }
     }
-
 
 }
