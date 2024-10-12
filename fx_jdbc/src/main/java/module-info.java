@@ -3,6 +3,7 @@ module com.javafx_jdbc {
     requires javafx.fxml;
     requires java.sql;
     requires javafx.graphics;
+    requires javafx.base;
 
     opens com.javafx_jdbc.GUI to javafx.fxml;
     opens com.javafx_jdbc.model.entities to javafx.base;
