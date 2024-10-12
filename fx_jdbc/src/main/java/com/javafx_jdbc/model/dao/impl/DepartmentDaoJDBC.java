@@ -12,6 +12,7 @@ import java.util.Map;
 
 import com.javafx_jdbc.db.DB;
 import com.javafx_jdbc.db.DbException;
+import com.javafx_jdbc.db.DbIntegrityException;
 import com.javafx_jdbc.model.entities.Department;
 import com.javafx_jdbc.model.dao.DepartmentDao;
 
@@ -57,7 +58,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement("UPDATE department "
-					+ "SET Name = ?" 
+					+ "SET Name = ?"
 					+ "WHERE Id = ?");
 
 			st.setString(1, obj.getName());
@@ -83,7 +84,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
 			st.executeUpdate();
 		} catch (SQLException e) {
-			throw new DbException(e.getMessage());
+			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			DB.closeStatement(st);
 		}
