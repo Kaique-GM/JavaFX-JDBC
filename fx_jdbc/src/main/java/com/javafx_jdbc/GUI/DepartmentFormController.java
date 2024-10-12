@@ -2,7 +2,10 @@ package com.javafx_jdbc.GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.List;
+import java.util.ArrayList;
 
+import com.javafx_jdbc.GUI.listeners.DataChangeListener;
 import com.javafx_jdbc.GUI.util.Alerts;
 import com.javafx_jdbc.GUI.util.Constraints;
 import com.javafx_jdbc.GUI.util.Utils;
@@ -22,6 +25,8 @@ public class DepartmentFormController implements Initializable {
 
     private DepartmentService service;
     private Department entity;
+
+    private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
     @FXML
     private TextField txtId;
@@ -46,6 +51,10 @@ public class DepartmentFormController implements Initializable {
         this.service = service;
     }
 
+    public void subscribeDataChangeListener(DataChangeListener listener) {
+        dataChangeListeners.add(listener);
+    }
+
     @FXML
     public void onBtSaveAction(ActionEvent event) {
         if (entity == null) {
@@ -57,9 +66,17 @@ public class DepartmentFormController implements Initializable {
         try {
             entity = getFormData();
             service.saveOrUpdate(entity);
-            Utils.currentStage(event).close();;
+            notifyDataChangeListeners();
+            Utils.currentStage(event).close();
+
         } catch (DbException e) {
             Alerts.showAlert("Error saving object", null, e.getMessage(), AlertType.ERROR);
+        }
+    }
+
+    private void notifyDataChangeListeners() {
+        for (DataChangeListener listener : dataChangeListeners) {
+            listener.onDataChanged();
         }
     }
 
@@ -72,7 +89,8 @@ public class DepartmentFormController implements Initializable {
 
     @FXML
     public void onBtCancelAction(ActionEvent event) {
-        Utils.currentStage(event).close();;
+        Utils.currentStage(event).close();
+        ;
     }
 
     @Override
