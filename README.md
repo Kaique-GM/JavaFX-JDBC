@@ -19,6 +19,28 @@ Este projeto é uma aplicação JavaFX desenvolvida para praticar e aprimorar mi
 - Conexão com Banco de Dados: Utiliza JDBC para conectar e executar operações no banco de dados MySQL.
 - Uso de FXML e Scene Builder: A interface é estruturada usando arquivos FXML e editada visualmente com Scene Builder, promovendo uma melhor separação entre a lógica e a apresentação.
 
+## 🖼️ Imagens da Aplicação
+
+<div align="center">
+  
+**Tela Inicial**
+<div style="display: flex; justify-content: space-between;">
+    <img src="fx_jdbc/img/Home.png" alt="Home" width="400" />
+</div>
+
+**Registro de Vendedores | Registro de Departamentos**
+<div style="display: flex; justify-content: space-between;">
+    <img src="fx_jdbc/img/SellerRegistration.png" alt="Registro de Vendedores" width="400" />
+    <img src="fx_jdbc/img/DepartmentRegistration.png" alt="Registro de Departamentos" width="400" />
+</div>
+
+**Insert de Vendedor | Edit de Vendedor**
+<div style="display: flex; justify-content: space-between;">
+  <img src="fx_jdbc/img/SellerInsert.png" alt="Insert de Vendedor" width="400" />
+  <img src="fx_jdbc/img/SellerEdit.png" alt="Edit de Vendedor" width="400" />
+</div>
+
+</div>
 
 ## 🎓 Agradecimentos
 
