@@ -28,13 +28,13 @@ Este projeto é uma aplicação JavaFX desenvolvida para praticar e aprimorar mi
     <img src="fx_jdbc/img/Home.png" alt="Home" width="400" />
 </div>
 
-**Registro de Vendedores | Registro de Departamentos**
+**Registro de Vendedores & Registro de Departamentos**
 <div style="display: flex; justify-content: space-between;">
     <img src="fx_jdbc/img/SellerRegistration.png" alt="Registro de Vendedores" width="400" />
     <img src="fx_jdbc/img/DepartmentRegistration.png" alt="Registro de Departamentos" width="400" />
 </div>
 
-**Insert de Vendedor | Edit de Vendedor**
+**Insert de Vendedor & Edit de Vendedor**
 <div style="display: flex; justify-content: space-between;">
   <img src="fx_jdbc/img/SellerInsert.png" alt="Insert de Vendedor" width="400" />
   <img src="fx_jdbc/img/SellerEdit.png" alt="Edit de Vendedor" width="400" />
