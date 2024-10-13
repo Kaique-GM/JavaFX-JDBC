@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
 
 import com.javafx_jdbc.App;
 import com.javafx_jdbc.GUI.listeners.DataChangeListener;
@@ -33,6 +34,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
 public class SellerListController implements Initializable, DataChangeListener {
 
     private SellerService service;
@@ -47,6 +49,15 @@ public class SellerListController implements Initializable, DataChangeListener {
     private TableColumn<Seller, String> tableColumnName;
 
     @FXML
+    private TableColumn<Seller, String> tableColumnEmail;
+
+    @FXML
+    private TableColumn<Seller, Date> tableColumnBirthDate;
+
+    @FXML
+    private TableColumn<Seller, Double> tableColumnBaseSalary;
+
+    @FXML
     private TableColumn<Seller, Seller> tableColumnEDIT;
 
     @FXML
@@ -54,6 +65,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 
     @FXML
     private Button btNew;
+    
 
     private ObservableList<Seller> obsList;
 
@@ -75,7 +87,13 @@ public class SellerListController implements Initializable, DataChangeListener {
 
     private void initializeNodes() {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        Utils.formatTableColumnDate(tableColumnBirthDate, "dd/MM/yyyy");
+        tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("baseSalary"));
+        Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
+
 
         Stage stage = (Stage) App.getMainScene().getWindow();
         tableViewSeller.prefHeightProperty().bind(stage.heightProperty());
