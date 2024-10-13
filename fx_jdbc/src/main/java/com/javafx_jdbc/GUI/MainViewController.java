@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import com.javafx_jdbc.App;
 import com.javafx_jdbc.GUI.util.Alerts;
 import com.javafx_jdbc.model.services.DepartmentService;
+import com.javafx_jdbc.model.services.SellerService;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +33,10 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemSellerAction() {
-        System.out.println("onMenuItemSellerAction");
+        loadView("/GUI/SellerList.fxml", (SellerListController controller) -> {
+            controller.setSellerService(new SellerService());
+            controller.updateTableView();
+        });
     }
 
     @FXML
